@@ -23,7 +23,13 @@ COPY LICENSE /app
 
 LABEL author="Raphael Tholl raphael.tholl@ibm.com"
 
-#VOLUME src/output:/app/src/output
+RUN groupadd -r appuser &&\
+    useradd -r appuser -g appuser -s /sbin/nologin -c "Non-root user to run application" &&\
+    chown -R appuser:appuser /app
+
+VOLUME /app/src/output
+
+USER appuser
 
 ENTRYPOINT ["python3"]
 
