@@ -45,7 +45,6 @@ Change the BACKGROUND_SUPPRESSION key in the [config.env](src/config.env). Choos
 Build the container. All commands I run using podman work with docker also.
 
 ```
-cd src
 podman build -t speech-to-text:latest .
 ```
 
