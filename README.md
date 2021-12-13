@@ -24,8 +24,6 @@ Install the python dependencies
 pip3 install -r requirements.txt
 ```
 
-Enter the full path to the audio file in the [config.env](src/config.env) and modify the AUDIO_FORMAT if needed. Find the list of supported audio formats [here](https://cloud.ibm.com/apidocs/speech-to-text?code=node#recognize).
-
 Then start the transcription, wait until it's done and check the stdout or [transcript.txt](src/output/transcript.txt)
 
 ```
