@@ -27,11 +27,18 @@ def recognize_sync():
             word_confidence=False,
         ).get_result()
     
-    transcript = speech_recognition_results['results'][0]['alternatives'][0]['transcript']
+    transcript = speech_recognition_results['results']
+
+    with open((join(dirname(__file__), 'output/transcriptRaw.json')), 'wt') as file:
+        file.write(json.dumps(transcript, indent=2))
 
     with open((join(dirname(__file__), 'output/transcript.txt')), 'wt') as file:
-        file.write(transcript)
-        print(transcript)
+        trancriptJoined = ""
+        for index in range(0, (len(transcript) -1) ):
+            trancriptJoined += transcript[index]['alternatives'][0]['transcript'] + ' '
+
+        file.write(trancriptJoined)
+        print(trancriptJoined)
 
 if __name__ == "__main__":
     recognize_sync()
